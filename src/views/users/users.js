@@ -18,7 +18,10 @@ export default {
     methods: {
         ...mapActions([
             'setUsers'
-        ])
+        ]),
+        showUser(id) {
+            this.$router.push(`users/${id}`)
+        }
     },
     computed: {
         ...mapGetters([

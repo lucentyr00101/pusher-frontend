@@ -1,8 +1,8 @@
 div
     .row
-        .col-xl-6
+        .col-xl-6.col-md-6
             h3 Users
-        .col-xl-6.text-right
+        .col-xl-6.col.md-6.text-right
             button.btn.btn-success(data-toggle="modal" data-target="#newUserModal")
                 i.fa.fa-plus
                 | Add New User
@@ -16,7 +16,7 @@ div
                     th Created At
                     th Last Updated
             tbody
-                tr(v-for="user in getUsers")
+                tr.user-row(v-for="user in getUsers" :key="user.id" @click="showUser(user.id)")
                     td {{ user.id }}
                     td {{ user.name }}
                     td {{ user.email }}

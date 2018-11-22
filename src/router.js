@@ -7,7 +7,6 @@ export default new Router({
   linkActiveClass: 'active',
   linkExactActiveClass: 'active',
   mode: 'history',
-  base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
@@ -21,12 +20,12 @@ export default new Router({
         {
           path: 'users',
           name: 'realtime-app',
-          component: () => import('@/components/users')
+          component: () => import('@/views/users')
         },
         {
           path: 'users/:id',
           name: 'single-post',
-          component: () => import('@/components/single-user')
+          component: () => import('@/views/single-user')
         }
       ]
     }

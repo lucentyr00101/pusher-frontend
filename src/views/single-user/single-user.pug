@@ -1,0 +1,17 @@
+div
+    .card(v-if="user !== null")
+        h5.card-header.bg-info User ID: {{ user.id }}
+        .card-body
+            ul.list-group
+                li.list-group-item
+                    strong Name:
+                    |  {{ user.name }}
+                li.list-group-item
+                    strong Email Address:
+                    |  {{ user.email }}
+                li.list-group-item
+                    strong Created At:
+                    |  {{ user.created_at }}
+                li.list-group-item
+                    strong Updated At:
+                    |  {{ user.updated_at }}
