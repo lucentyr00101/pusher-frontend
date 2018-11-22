@@ -15,11 +15,19 @@ div
                     th Email
                     th Created At
                     th Last Updated
+                    th Actions
             tbody
-                tr.user-row(v-for="user in getUsers" :key="user.id" @click="showUser(user.id)")
+                tr.user-row(v-for="user in getUsers" :key="user.id")
                     td {{ user.id }}
                     td {{ user.name }}
                     td {{ user.email }}
                     td {{ user.created_at }}
                     td {{ user.updated_at }}
+                    td.text-white
+                        router-link.btn.btn-primary(:to="{ name: 'user-show', params: { id: user.id } }")
+                            i.fa.fa-eye
+                        router-link.btn.btn-info(:to="{ name: 'user-edit', params: { id: user.id } }")
+                            i.fa.fa-edit
+                        button.btn.btn-danger(@click="deleteUser(user.id)")
+                            i.fa.fa-trash
     newUserModal

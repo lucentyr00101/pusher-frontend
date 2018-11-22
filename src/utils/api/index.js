@@ -9,3 +9,11 @@ export const newUser = () => {
 export const showUser = id => {
     return `/api/users/${id}`
 }
+
+export const updateUser = id => {
+    return `/api/users/${id}`
+}
+
+export const deleteUser = id => {
+    return `api/users/${id}`
+}

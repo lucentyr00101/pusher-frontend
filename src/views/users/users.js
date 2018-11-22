@@ -1,4 +1,6 @@
 import { mapActions, mapGetters } from 'vuex';
+import Axios from 'axios';
+import { deleteUser } from '@/utils/api'
 
 const Pusher = require('pusher-js');
 Pusher.logToConsole = true;
@@ -20,7 +22,12 @@ export default {
             'setUsers'
         ]),
         showUser(id) {
-            this.$router.push(`users/${id}`)
+            this.$router.push({ name: 'user-show', params: { id: id } })
+        },
+        deleteUser(id) {
+            Axios.delete(deleteUser(id))
+                .then(() => this.setUsers())
+                .catch(e => console.log(e))
         }
     },
     computed: {

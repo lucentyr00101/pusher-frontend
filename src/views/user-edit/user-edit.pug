@@ -1,0 +1,19 @@
+div
+    .card(v-if="user !== null")
+        h5.card-header.bg-info User ID: {{ user.id }}
+        .card-body
+            form(@submit.prevent="updateUser")
+                ul.list-group
+                    li.list-group-item
+                        strong Name:
+                        input.form-control(required v-model="user.name")
+                    li.list-group-item
+                        strong Email Address:
+                        input.form-control(required v-model="user.email")
+                    li.list-group-item
+                        strong Created At:
+                        |  {{ user.created_at }}
+                    li.list-group-item
+                        strong Updated At:
+                        |  {{ user.updated_at }}
+                button.btn.btn-success(type="submit") Update

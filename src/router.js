@@ -24,8 +24,13 @@ export default new Router({
         },
         {
           path: 'users/:id',
-          name: 'single-post',
-          component: () => import('@/views/single-user')
+          name: 'user-show',
+          component: () => import('@/views/user-show')
+        },
+        {
+          path: 'users/:id/edit',
+          name: 'user-edit',
+          component: () => import('@/views/user-edit')
         }
       ]
     }
