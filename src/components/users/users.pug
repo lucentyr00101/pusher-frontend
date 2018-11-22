@@ -6,7 +6,7 @@ div
             button.btn.btn-success(data-toggle="modal" data-target="#newUserModal")
                 i.fa.fa-plus
                 | Add New User
-    .table-responsive.text-center(v-if="users")
+    .table-responsive.text-center(v-if="getUsers")
         table.table.table-striped.table-hover
             thead
                 tr
@@ -16,7 +16,7 @@ div
                     th Created At
                     th Last Updated
             tbody
-                tr(v-for="user in users")
+                tr(v-for="user in getUsers")
                     td {{ user.id }}
                     td {{ user.name }}
                     td {{ user.email }}

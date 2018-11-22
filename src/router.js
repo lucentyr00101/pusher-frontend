@@ -20,7 +20,7 @@ export default new Router({
       children: [
         {
           path: 'users',
-          name: 'realtime-posts',
+          name: 'realtime-app',
           component: () => import('@/components/users')
         },
         {

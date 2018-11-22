@@ -1,5 +1,4 @@
-import { users } from '@/utils/api'
-import axios from 'axios'
+import { mapActions, mapGetters } from 'vuex';
 
 const Pusher = require('pusher-js');
 Pusher.logToConsole = true;
@@ -9,22 +8,22 @@ const pusher = new Pusher(process.env.VUE_APP_PUSHER_APP_KEY, {
 });
 
 export default {
-    data() {
-        return {
-            users: []
-        }
-    },
     mounted() {
-        axios.get(users())
-            .then(res => {
-                this.users = res.data.data
-            })
-            .catch(e => console.log(e))
-        
+        this.setUsers()
         pusher.subscribe(`users-update`)
-            .bind('user', (data) => {
-                this.users.unshift(data)
+            .bind('user', () => {
+                this.setUsers()
             });
+    },
+    methods: {
+        ...mapActions([
+            'setUsers'
+        ])
+    },
+    computed: {
+        ...mapGetters([
+            'getUsers'
+        ])
     },
     components: {
         newUserModal: () => import('@/components/new-user-modal')
