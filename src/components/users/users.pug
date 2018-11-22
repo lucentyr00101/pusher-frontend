@@ -1,0 +1,25 @@
+div
+    .row
+        .col-xl-6
+            h3 Users
+        .col-xl-6.text-right
+            button.btn.btn-success(data-toggle="modal" data-target="#newUserModal")
+                i.fa.fa-plus
+                | Add New User
+    .table-responsive.text-center(v-if="users")
+        table.table.table-striped.table-hover
+            thead
+                tr
+                    th ID
+                    th Name
+                    th Email
+                    th Created At
+                    th Last Updated
+            tbody
+                tr(v-for="user in users")
+                    td {{ user.id }}
+                    td {{ user.name }}
+                    td {{ user.email }}
+                    td {{ user.created_at }}
+                    td {{ user.updated_at }}
+    newUserModal

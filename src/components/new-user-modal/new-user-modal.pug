@@ -1,0 +1,21 @@
+.modal.fade#newUserModal(tabindex="-1" role="dialog")
+    .modal-dialog(role="document")
+        .modal-content
+            .modal-header
+                h5.modal-title Add new comment
+                button.close(type="button" data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") &times;
+            form(@submit.prevent="addUser")
+                .modal-body
+                    .form-group
+                        label Name
+                        input.form-control(type="text" placeholder="Enter name here" v-model="name")
+                    .form-group
+                        label Email Address
+                        input.form-control(type="email" placeholder="Enter email here" v-model="email")
+                    .form-group
+                        label Password
+                        input.form-control(placeholder="Enter password here" v-model="password")
+                .modal-footer
+                    button.btn.btn-danger(type="button" data-dismiss="modal") Cancel
+                    button.btn.btn-primary(type="submit") Send

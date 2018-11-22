@@ -1,0 +1,11 @@
+.col-xl-6.mb-3
+    .card
+        .card-header
+            button.btn.btn-danger.text-right.mr-3
+                i.fa.fa-trash
+            | Comment ID#: {{ comment.id }}
+        .card-body
+            blockquote.blockquote.mb-0
+                p {{ comment.body }}
+                footer.blockquote-footer
+                    cite {{ comment.name }} ({{ comment.email }})
